@@ -1,6 +1,6 @@
 # Camera Application
 
-## Problems That Need to be solved: (Till. 2017.11.19)
+## Problems That Need to be solved: (Till. 2017.11.19 night)
 
 1. About saving image:
 The image should save in horizontal direction (it save wrong orientation image into image)
