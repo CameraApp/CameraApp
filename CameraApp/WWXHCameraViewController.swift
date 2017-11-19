@@ -21,6 +21,9 @@ enum FlashBtnType: Int {
 let SCREENWIDTH = UIScreen.main.bounds.size.width
 let SCREENHEIGHT = UIScreen.main.bounds.size.height
 
+//set current view, use img + currentIndex
+var currentIndex = 1;
+
 protocol WWXHCameraViewControllerDelegate: class {
     func cameraViewController(_ : WWXHCameraViewController, didFinishPickingImage image: UIImage)
 }
@@ -247,12 +250,24 @@ class WWXHCameraViewController: UIViewController {
                         //calling functions at "viewController.swft", letting view Controller to do some extra operations.
                         self.delegate?.cameraViewController(self, didFinishPickingImage: image)
                         print("拍照完成")
-                        self.dismiss(animated: true, completion: nil)
+                        let selector = #selector(WWXHCameraViewController.onCompleteCapture(image:error:contextInfo:))
+                        UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
+                        //self.dismiss(animated: true, completion: nil)
                     }
+                    
                 }
             }
         }
-        
+    }
+    
+    func onCompleteCapture(image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer) {
+        if error == nil {
+            //保存失败
+            print("Saved Failed")
+        }else {
+            //保存成功
+            print("Saved Successfully")
+        }
     }
     
     func back() {
