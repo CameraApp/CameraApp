@@ -22,7 +22,9 @@ let SCREENWIDTH = UIScreen.main.bounds.size.width
 let SCREENHEIGHT = UIScreen.main.bounds.size.height
 
 //set current view, use img + currentIndex
-var currentIndex = 1;
+var currentIndex = 1
+var commonPrefix = "testimg"
+let maxIndex = 3
 
 protocol WWXHCameraViewControllerDelegate: class {
     func cameraViewController(_ : WWXHCameraViewController, didFinishPickingImage image: UIImage)
@@ -65,6 +67,7 @@ class WWXHCameraViewController: UIViewController {
     
     //var coverImage = UIImage(named: "xxk")
     //From Here is to create those line tutorial of taking picture.
+    //var coverImage = UIImage(named: commonPrefix + String(currentIndex))
     var coverImage = UIImage(named: "testimg1")
     //TODO:改变cover
     
@@ -330,16 +333,23 @@ class WWXHCameraViewController: UIViewController {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
                 print("Swiped right")
-                removeCoverImage()
-                coverImage = UIImage(named: "testimg2")
-                self.setCoverImage(image: coverImage!)
+                if currentIndex != 1 {
+                    currentIndex -= 1
+                    removeCoverImage()
+                    coverImage = UIImage(named: commonPrefix + String(currentIndex))
+                    self.setCoverImage(image: coverImage!)
+                }
             case UISwipeGestureRecognizerDirection.down:
                 print("Swiped down")
             case UISwipeGestureRecognizerDirection.left:
                 print("Swiped left")
-                removeCoverImage()
-                coverImage = UIImage(named: "testimg1")
-                self.setCoverImage(image: coverImage!)
+                if currentIndex != maxIndex {
+                    currentIndex += 1
+                    removeCoverImage()
+                    print(commonPrefix + String(currentIndex))
+                    coverImage = UIImage(named: commonPrefix + String(currentIndex))
+                    self.setCoverImage(image: coverImage!)
+                }
             case UISwipeGestureRecognizerDirection.up:
                 print("Swiped up")
             default:
