@@ -148,7 +148,7 @@ class WWXHCameraViewController: UIViewController {
         coverImageView.center.y = self.view.center.y 
         coverImageView.center.x = self.view.center.x
         coverImageView.tag = 1;
-        self.view.addSubview(coverImageView)
+        self.view.insertSubview(coverImageView, at:3)
     }
     
     //去除遮罩
