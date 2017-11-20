@@ -23,7 +23,7 @@ let SCREENHEIGHT = UIScreen.main.bounds.size.height
 
 //set current view, use img + currentIndex
 var currentIndex = 1
-var commonPrefix = "testimg"
+let commonPrefix = "testimg"
 let maxIndex = 3
 
 protocol WWXHCameraViewControllerDelegate: class {
@@ -145,8 +145,9 @@ class WWXHCameraViewController: UIViewController {
     // 设置遮罩
     func setCoverImage(image: UIImage) {
         let coverImageView = UIImageView(image: image)
-        coverImageView.center.y = self.view.center.y + 100
+        coverImageView.center.y = self.view.center.y 
         coverImageView.center.x = self.view.center.x
+        coverImageView.tag = 1;
         self.view.addSubview(coverImageView)
     }
     
@@ -154,7 +155,9 @@ class WWXHCameraViewController: UIViewController {
     func removeCoverImage() {
         //self.view.removeFromSuperview()
         for view in self.view.subviews{
-            view.removeFromSuperview()
+            if view.tag == 1 {
+                view.removeFromSuperview()
+            }
         }
     }
     
