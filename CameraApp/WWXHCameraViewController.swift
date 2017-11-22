@@ -258,6 +258,7 @@ class WWXHCameraViewController: UIViewController {
                         print("拍照完成")
                         let selector = #selector(WWXHCameraViewController.onCompleteCapture(image:error:contextInfo:))
                         UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
+                        //Jump back to the First Page
                         //self.dismiss(animated: true, completion: nil)
                     }
                     

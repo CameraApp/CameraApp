@@ -22,9 +22,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vue-LE-z77">
-                                <rect key="frame" x="176" y="307" width="46" height="30"/>
+                                <rect key="frame" x="120" y="545" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Start Taking Picture"/>
                                 <connections>
                                     <segue destination="WvY-Hs-LQE" kind="show" id="gtR-cu-Z9e"/>
                                 </connections>
