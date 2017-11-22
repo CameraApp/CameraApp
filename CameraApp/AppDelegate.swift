@@ -1,5 +1,5 @@
 //  AppDelegate.swift
-//  WWXHCamera
+//  CameraApp
 //
 //  Created by HKUCS on 2017/11/15.
 //  Copyright © 2017年 HKUCS. All rights reserved.
