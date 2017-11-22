@@ -143,12 +143,16 @@ class WWXHCameraViewController: UIViewController {
     }
     
     // 设置遮罩
-    func setCoverImage(image: UIImage) {
+    func setCoverImage(image: UIImage, index:Int = 3) {
         let coverImageView = UIImageView(image: image)
         coverImageView.center.y = self.view.center.y 
         coverImageView.center.x = self.view.center.x
         coverImageView.tag = 1;
-        self.view.insertSubview(coverImageView, at:3)
+        if(index == -1){
+            self.view.addSubview(coverImageView);
+        }else{
+           self.view.insertSubview(coverImageView, at:index)
+        }
     }
     
     //去除遮罩
@@ -252,13 +256,14 @@ class WWXHCameraViewController: UIViewController {
             if let jpegData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer) {
                 if let tempImage = UIImage(data: jpegData, scale: 1) {
                     if let tempCgImage = tempImage.cgImage {
-                        let image = UIImage(cgImage: tempCgImage, scale: 0.1, orientation: UIImageOrientation.up)
+                        let image = UIImage(cgImage: tempCgImage, scale: 0.1, orientation: UIImageOrientation.right)
                         //calling functions at "viewController.swft", letting view Controller to do some extra operations.
                         self.delegate?.cameraViewController(self, didFinishPickingImage: image)
                         print("拍照完成")
                         let selector = #selector(WWXHCameraViewController.onCompleteCapture(image:error:contextInfo:))
                         UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
                         //self.dismiss(animated: true, completion: nil)
+                        //self.setCoverImage(image:image,index:-1)
                     }
                     
                 }
