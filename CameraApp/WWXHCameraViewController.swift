@@ -24,7 +24,7 @@ let SCREENHEIGHT = UIScreen.main.bounds.size.height
 //set current view, use img + currentIndex
 var currentIndex = 1
 let commonPrefix = "testimg"
-let maxIndex = 3
+let maxIndex = 4
 
 protocol WWXHCameraViewControllerDelegate: class {
     func cameraViewController(_ : WWXHCameraViewController, didFinishPickingImage image: UIImage)
@@ -263,7 +263,7 @@ class WWXHCameraViewController: UIViewController {
                         let selector = #selector(WWXHCameraViewController.onCompleteCapture(image:error:contextInfo:))
                         UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
                         //self.dismiss(animated: true, completion: nil)
-                        //self.setCoverImage(image:image,index:-1)
+                        self.setCoverImage(image:image,index:-1)
                     }
                     
                 }
