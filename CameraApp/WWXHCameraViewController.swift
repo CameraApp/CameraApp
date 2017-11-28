@@ -33,11 +33,12 @@ protocol WWXHCameraViewControllerDelegate: class {
     func cameraViewController(_ : WWXHCameraViewController, didFinishPickingImage image: UIImage)
 }
 
- /*
+/*
  https://stackoverflow.com/questions/28756363/how-to-capture-picture-with-avcapturesession-in-swift
  */
 
 class WWXHCameraViewController: UIViewController {
+    
     // session 用来执行输入设备和输出设备之间的数据传递 ~
     var session: AVCaptureSession = AVCaptureSession()
     // 输入设备
@@ -149,16 +150,24 @@ class WWXHCameraViewController: UIViewController {
         }
     }
     
-    // 设置遮罩
+    /*设置遮罩
+     func setCoverImage(image: UIImage) {
+     let coverImageView = UIImageView(image: image)
+     coverImageView.center.y = self.view.center.y
+     coverImageView.center.x = self.view.center.x
+     coverImageView.tag = 1;
+     self.view.insertSubview(coverImageView, at:3)
+     }*/
+    //设置遮罩
     func setCoverImage(image: UIImage, index:Int = 3) {
         let coverImageView = UIImageView(image: image)
-        coverImageView.center.y = self.view.center.y 
+        coverImageView.center.y = self.view.center.y
         coverImageView.center.x = self.view.center.x
         coverImageView.tag = 1;
         if(index == -1){
             self.view.addSubview(coverImageView);
         }else{
-           self.view.insertSubview(coverImageView, at:index)
+            self.view.insertSubview(coverImageView, at:index)
         }
     }
     
@@ -224,7 +233,7 @@ class WWXHCameraViewController: UIViewController {
         // 初始化相机按钮 (Adaptive)
         // From UIButton, calling itself, and then call void function named "takePhoto", For..?
         /*
-        https://developer.apple.com/documentation/uikit/uicontrolevents
+         https://developer.apple.com/documentation/uikit/uicontrolevents
          */
         takePhotoBtn.addTarget(self, action: #selector(takePhoto), for: UIControlEvents.touchUpInside)
         takePhotoBtn.setImage(UIImage(named: "photo_nor"), for: UIControlState.normal)
@@ -327,12 +336,14 @@ class WWXHCameraViewController: UIViewController {
             if let jpegData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer) {
                 if let tempImage = UIImage(data: jpegData, scale: 1) {
                     if let tempCgImage = tempImage.cgImage {
-                        let image = UIImage(cgImage: tempCgImage, scale: 0.1, orientation: UIImageOrientation.right)
+                        let image = UIImage(cgImage: tempCgImage, scale:0.1, orientation: UIImageOrientation.right)
                         //calling functions at "viewController.swft", letting view Controller to do some extra operations.
                         self.delegate?.cameraViewController(self, didFinishPickingImage: image)
+                        
                         print("拍照完成")
                         let selector = #selector(WWXHCameraViewController.onCompleteCapture(image:error:contextInfo:))
                         UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
+                        
                         //Jump back to the First Page
                         //self.dismiss(animated: true, completion: nil)
                         //self.setCoverImage(image:image,index:-1)
