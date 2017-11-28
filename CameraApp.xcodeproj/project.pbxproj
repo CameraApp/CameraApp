@@ -7,19 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7C68D851FCD920E00C6207E /* DragCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C68D841FCD920E00C6207E /* DragCard.swift */; };
+		B7C68D871FCD921500C6207E /* DragViewBackGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C68D861FCD921500C6207E /* DragViewBackGround.swift */; };
+		B7C68D8A1FCD939B00C6207E /* icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C68D891FCD939B00C6207E /* icon4.png */; };
+		B7C68D931FCD93AD00C6207E /* P4_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7C68D8D1FCD93AD00C6207E /* P4_img.jpg */; };
+		B7C68D941FCD93AD00C6207E /* P5_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7C68D8E1FCD93AD00C6207E /* P5_img.jpg */; };
+		B7C68D951FCD93AD00C6207E /* P2_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7C68D8F1FCD93AD00C6207E /* P2_img.jpg */; };
+		B7C68D961FCD93AD00C6207E /* P3_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7C68D901FCD93AD00C6207E /* P3_img.jpg */; };
+		B7C68D9A1FCD94EC00C6207E /* P1_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7C68D991FCD94EC00C6207E /* P1_img.jpg */; };
+		B7C68D9C1FCD961C00C6207E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7C68D9B1FCD961C00C6207E /* Main.storyboard */; };
 		FC6ECE0F1ED98618007B4874 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6ECE0E1ED98618007B4874 /* AppDelegate.swift */; };
 		FC6ECE111ED98618007B4874 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6ECE101ED98618007B4874 /* ViewController.swift */; };
-		FC6ECE141ED98618007B4874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6ECE121ED98618007B4874 /* Main.storyboard */; };
 		FC6ECE191ED98618007B4874 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6ECE171ED98618007B4874 /* LaunchScreen.storyboard */; };
 		FC6ECE211ED9866B007B4874 /* WWXHCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6ECE201ED9866B007B4874 /* WWXHCameraViewController.swift */; };
 		FC6ECE541ED9871A007B4874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC6ECE221ED9871A007B4874 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7C68D841FCD920E00C6207E /* DragCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DragCard.swift; path = ../../../Downloads/DragCard.swift; sourceTree = "<group>"; };
+		B7C68D861FCD921500C6207E /* DragViewBackGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragViewBackGround.swift; sourceTree = "<group>"; };
+		B7C68D891FCD939B00C6207E /* icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon4.png; sourceTree = "<group>"; };
+		B7C68D8D1FCD93AD00C6207E /* P4_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = P4_img.jpg; sourceTree = "<group>"; };
+		B7C68D8E1FCD93AD00C6207E /* P5_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = P5_img.jpg; sourceTree = "<group>"; };
+		B7C68D8F1FCD93AD00C6207E /* P2_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = P2_img.jpg; sourceTree = "<group>"; };
+		B7C68D901FCD93AD00C6207E /* P3_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = P3_img.jpg; sourceTree = "<group>"; };
+		B7C68D991FCD94EC00C6207E /* P1_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = P1_img.jpg; sourceTree = "<group>"; };
+		B7C68D9B1FCD961C00C6207E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Downloads/Main.storyboard; sourceTree = "<group>"; };
 		FC6ECE0B1ED98618007B4874 /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC6ECE0E1ED98618007B4874 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC6ECE101ED98618007B4874 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FC6ECE131ED98618007B4874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC6ECE181ED98618007B4874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC6ECE1A1ED98618007B4874 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC6ECE201ED9866B007B4874 /* WWXHCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWXHCameraViewController.swift; sourceTree = "<group>"; };
@@ -37,9 +53,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7C68D881FCD92D900C6207E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7C68D891FCD939B00C6207E /* icon4.png */,
+				B7C68D991FCD94EC00C6207E /* P1_img.jpg */,
+				B7C68D8F1FCD93AD00C6207E /* P2_img.jpg */,
+				B7C68D901FCD93AD00C6207E /* P3_img.jpg */,
+				B7C68D8D1FCD93AD00C6207E /* P4_img.jpg */,
+				B7C68D8E1FCD93AD00C6207E /* P5_img.jpg */,
+			);
+			name = Resources;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		FC6ECE021ED98618007B4874 = {
 			isa = PBXGroup;
 			children = (
+				B7C68D881FCD92D900C6207E /* Resources */,
 				FC6ECE0D1ED98618007B4874 /* CameraApp */,
 				FC6ECE0C1ED98618007B4874 /* Products */,
 			);
@@ -59,7 +90,9 @@
 				FC6ECE0E1ED98618007B4874 /* AppDelegate.swift */,
 				FC6ECE201ED9866B007B4874 /* WWXHCameraViewController.swift */,
 				FC6ECE101ED98618007B4874 /* ViewController.swift */,
-				FC6ECE121ED98618007B4874 /* Main.storyboard */,
+				B7C68D841FCD920E00C6207E /* DragCard.swift */,
+				B7C68D9B1FCD961C00C6207E /* Main.storyboard */,
+				B7C68D861FCD921500C6207E /* DragViewBackGround.swift */,
 				FC6ECE171ED98618007B4874 /* LaunchScreen.storyboard */,
 				FC6ECE1A1ED98618007B4874 /* Info.plist */,
 				FC6ECE221ED9871A007B4874 /* Assets.xcassets */,
@@ -99,7 +132,7 @@
 				TargetAttributes = {
 					FC6ECE0A1ED98618007B4874 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = H78RY4M2AA;
+						DevelopmentTeam = 864XSL2U7M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -127,9 +160,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C68D961FCD93AD00C6207E /* P3_img.jpg in Resources */,
+				B7C68D941FCD93AD00C6207E /* P5_img.jpg in Resources */,
+				B7C68D9A1FCD94EC00C6207E /* P1_img.jpg in Resources */,
+				B7C68D931FCD93AD00C6207E /* P4_img.jpg in Resources */,
 				FC6ECE191ED98618007B4874 /* LaunchScreen.storyboard in Resources */,
+				B7C68D8A1FCD939B00C6207E /* icon4.png in Resources */,
+				B7C68D9C1FCD961C00C6207E /* Main.storyboard in Resources */,
 				FC6ECE541ED9871A007B4874 /* Assets.xcassets in Resources */,
-				FC6ECE141ED98618007B4874 /* Main.storyboard in Resources */,
+				B7C68D951FCD93AD00C6207E /* P2_img.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +180,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC6ECE111ED98618007B4874 /* ViewController.swift in Sources */,
+				B7C68D851FCD920E00C6207E /* DragCard.swift in Sources */,
+				B7C68D871FCD921500C6207E /* DragViewBackGround.swift in Sources */,
 				FC6ECE211ED9866B007B4874 /* WWXHCameraViewController.swift in Sources */,
 				FC6ECE0F1ED98618007B4874 /* AppDelegate.swift in Sources */,
 			);
@@ -149,14 +190,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FC6ECE121ED98618007B4874 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC6ECE131ED98618007B4874 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FC6ECE171ED98618007B4874 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -266,7 +299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H78RY4M2AA;
+				DEVELOPMENT_TEAM = 864XSL2U7M;
 				INFOPLIST_FILE = CameraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -282,7 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H78RY4M2AA;
+				DEVELOPMENT_TEAM = 864XSL2U7M;
 				INFOPLIST_FILE = CameraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
