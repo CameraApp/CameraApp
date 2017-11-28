@@ -1,5 +1,5 @@
 //  ViewController.swift
-//  WWXHCamera
+//  CameraApp
 //
 //  Created by HKUCS on 2017/11/15.
 //  Copyright © 2017年 HKUCS. All rights reserved.
@@ -20,7 +20,7 @@ class ViewController: UIViewController,WWXHCameraViewControllerDelegate {
     }
     
     func cameraViewController(_: WWXHCameraViewController, didFinishPickingImage image: UIImage) {
-        // 这里获取到图片 然后可以做些操作...
+        
     }
     
 }

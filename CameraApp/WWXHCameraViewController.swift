@@ -1,6 +1,6 @@
 //
 //  WWXHCameraViewController.swift
-//  WWXHCamera
+//  CameraApp
 //
 //  Created by HKUCS on 2017/11/15.
 //  Copyright © 2017年 HKUCS. All rights reserved.
@@ -35,7 +35,7 @@ protocol WWXHCameraViewControllerDelegate: class {
  */
 
 class WWXHCameraViewController: UIViewController {
-    // session 用来执行输入设备和输出设备之间的数据传递~
+    // session 用来执行输入设备和输出设备之间的数据传递 ~
     var session: AVCaptureSession = AVCaptureSession()
     // 输入设备
     var videoInput: AVCaptureInput?
@@ -262,6 +262,7 @@ class WWXHCameraViewController: UIViewController {
                         print("拍照完成")
                         let selector = #selector(WWXHCameraViewController.onCompleteCapture(image:error:contextInfo:))
                         UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
+                        //Jump back to the First Page
                         //self.dismiss(animated: true, completion: nil)
                         self.setCoverImage(image:image,index:-1)
                     }
