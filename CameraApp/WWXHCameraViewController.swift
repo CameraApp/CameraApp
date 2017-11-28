@@ -26,6 +26,9 @@ var currentIndex = 1
 let commonPrefix = "testimg"
 let maxIndex = 4
 
+var couldSwipe = true;
+var isChooseFilter = false;
+
 protocol WWXHCameraViewControllerDelegate: class {
     func cameraViewController(_ : WWXHCameraViewController, didFinishPickingImage image: UIImage)
 }
@@ -59,6 +62,8 @@ class WWXHCameraViewController: UIViewController {
     var flashlightButtonAuto: UIButton = UIButton(frame: CGRect(x: 100, y: 20, width: 25, height: 25))
     // 前后摄像头切换按钮
     var cameraSwitchButton: UIButton = UIButton(frame: CGRect(x: SCREENWIDTH - 20 - 30, y: 0, width: 30, height: 30))
+    // 滤镜选择按钮
+    var filterBtn: UIButton = UIButton(frame: CGRect(x: SCREENWIDTH - 45 - 26, y: 0, width: 26, height: 26))
     
     var isUsingFrontFacingCamera: Bool = true
     
@@ -69,7 +74,8 @@ class WWXHCameraViewController: UIViewController {
     //From Here is to create those line tutorial of taking picture.
     //var coverImage = UIImage(named: commonPrefix + String(currentIndex))
     var coverImage = UIImage(named: "testimg1")
-    //TODO:改变cover
+    
+    var scrollView = UIScrollView();
     
     
     // Load funciton
@@ -79,6 +85,7 @@ class WWXHCameraViewController: UIViewController {
         self.setupAVCaptureSession()
         self.setUpUI()
         self.setCoverImage(image: coverImage!)
+        
         //set gesture
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
@@ -155,6 +162,52 @@ class WWXHCameraViewController: UIViewController {
         }
     }
     
+    func setScrollView(){
+        self.view.backgroundColor = UIColor.gray
+        scrollView.frame = CGRect(x: 00, y: takePhotoBtn.center.y - 250, width: 1500, height: 200)
+        scrollView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        
+        // 监测目前滚动的位置
+        //scrollView.contentOffset
+        // 设置内容的滚动范围 能滚多远
+        scrollView.contentSize = CGSize(width: 1500, height: 200)
+        // 四周增加额外的滚动区域，一般用来避免scrollView的内容被其他控件挡住
+        scrollView.contentInset = UIEdgeInsetsMake(20, 20, 20, 20)
+        // 控制垂直方向遇到边框是否反弹
+        scrollView.alwaysBounceVertical = true
+        // 控制水平方向遇到边框是否反弹
+        scrollView.alwaysBounceHorizontal = true
+        // 是否显示水平滚动条
+        scrollView.showsHorizontalScrollIndicator = true
+        // 是否显示垂直滚动条
+        scrollView.showsVerticalScrollIndicator = false
+        // 是否以每页的形式进行更换
+        scrollView.isPagingEnabled = true
+        // 是否可以滚动
+        scrollView.isScrollEnabled = true
+        // 指定控件是否只能在一个方向上滚动
+        scrollView.isDirectionalLockEnabled = false
+        //  控制控件遇到边框是否反弹
+        scrollView.bounces = false
+        // 指定滚动条在scrollerView中的位置
+        scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        // 设置滚动条的样式
+        scrollView.indicatorStyle = UIScrollViewIndicatorStyle.default
+        // 改变scrollerView的减速点位置
+        scrollView.decelerationRate = 10
+        // 缩小的最小比例
+        scrollView.minimumZoomScale = 0
+        // 放大的最大比例
+        scrollView.maximumZoomScale = 5
+        // 控制控件滚动到顶部
+        scrollView.scrollsToTop = true
+        
+        // 设置代理
+        //scrollView.delegate = self
+        
+        self.view.addSubview(scrollView)
+    }
+    
     //去除遮罩
     func removeCoverImage() {
         //self.view.removeFromSuperview()
@@ -185,6 +238,12 @@ class WWXHCameraViewController: UIViewController {
         backBtn.addTarget(self, action: #selector(back), for: UIControlEvents.touchUpInside)
         backBtn.center.y = takePhotoBtn.center.y
         self.view.addSubview(backBtn)
+        
+        // 初始化滤镜选择按钮(Adaptive)
+        filterBtn.setImage(UIImage(named: "filter"), for: UIControlState.normal)
+        filterBtn.addTarget(self, action: #selector(filter_click), for: UIControlEvents.touchUpInside)
+        filterBtn.center.y = takePhotoBtn.center.y
+        self.view.addSubview(filterBtn)
         
         // 初始化闪光灯开启按钮
         flashlightButtonOn.setImage(UIImage(named: "flashlight_on"), for: UIControlState.normal)
@@ -231,6 +290,18 @@ class WWXHCameraViewController: UIViewController {
         }
     }
     
+    func filter_click(){
+        isChooseFilter = !isChooseFilter
+        print("isChooseFilter=",isChooseFilter)
+        if(isChooseFilter == true){
+            couldSwipe = false
+            self.setScrollView()
+        }else{
+            scrollView.removeFromSuperview()
+            couldSwipe = true
+        }
+    }
+    
     func takePhoto() {
         guard let stillImageConnection = stillImageOutput.connection(withMediaType: AVMediaTypeVideo) else {
             print("Failed to be initialed")
@@ -264,7 +335,7 @@ class WWXHCameraViewController: UIViewController {
                         UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
                         //Jump back to the First Page
                         //self.dismiss(animated: true, completion: nil)
-                        self.setCoverImage(image:image,index:-1)
+                        //self.setCoverImage(image:image,index:-1)
                     }
                     
                 }
@@ -338,31 +409,33 @@ class WWXHCameraViewController: UIViewController {
     }
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.right:
-                print("Swiped right")
-                if currentIndex != 1 {
-                    currentIndex -= 1
-                    removeCoverImage()
-                    coverImage = UIImage(named: commonPrefix + String(currentIndex))
-                    self.setCoverImage(image: coverImage!)
+        if(couldSwipe == true){
+            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+                switch swipeGesture.direction {
+                case UISwipeGestureRecognizerDirection.right:
+                    print("Swiped right")
+                    if currentIndex != 1 {
+                        currentIndex -= 1
+                        removeCoverImage()
+                        coverImage = UIImage(named: commonPrefix + String(currentIndex))
+                        self.setCoverImage(image: coverImage!)
+                    }
+                case UISwipeGestureRecognizerDirection.down:
+                    print("Swiped down")
+                case UISwipeGestureRecognizerDirection.left:
+                    print("Swiped left")
+                    if currentIndex != maxIndex {
+                        currentIndex += 1
+                        removeCoverImage()
+                        print(commonPrefix + String(currentIndex))
+                        coverImage = UIImage(named: commonPrefix + String(currentIndex))
+                        self.setCoverImage(image: coverImage!)
+                    }
+                case UISwipeGestureRecognizerDirection.up:
+                    print("Swiped up")
+                default:
+                    break
                 }
-            case UISwipeGestureRecognizerDirection.down:
-                print("Swiped down")
-            case UISwipeGestureRecognizerDirection.left:
-                print("Swiped left")
-                if currentIndex != maxIndex {
-                    currentIndex += 1
-                    removeCoverImage()
-                    print(commonPrefix + String(currentIndex))
-                    coverImage = UIImage(named: commonPrefix + String(currentIndex))
-                    self.setCoverImage(image: coverImage!)
-                }
-            case UISwipeGestureRecognizerDirection.up:
-                print("Swiped up")
-            default:
-                break
             }
         }
     }

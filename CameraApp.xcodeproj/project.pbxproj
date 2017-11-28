@@ -303,7 +303,7 @@
 				FC6ECE1C1ED98618007B4874 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FC6ECE1D1ED98618007B4874 /* Build configuration list for PBXNativeTarget "CameraApp" */ = {
 			isa = XCConfigurationList;
@@ -312,7 +312,7 @@
 				FC6ECE1F1ED98618007B4874 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
